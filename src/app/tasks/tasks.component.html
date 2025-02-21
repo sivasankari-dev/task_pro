@@ -1,0 +1,26 @@
+<!-- <h2>{{ name }}</h2> -->
+
+<section id = "tasks">
+    <header>
+        @if( id ){
+        <h2>Tasks of {{ name }}</h2>
+        <menu>
+            <button>Add Tasks</button>
+        </menu>
+        }   
+    </header>
+
+    <ul>
+        @if (selectedUserTasks.length > 0) {
+            <li>
+                @for (selected_task of selectedUserTasks; track selected_task.id){
+                <app-task [task] = "selected_task"></app-task>
+                }
+            </li>
+        } 
+        @else ()   {
+            <h3 id = "fallback">No tasks assigned yet!</h3>
+        }
+    </ul>
+
+</section>
