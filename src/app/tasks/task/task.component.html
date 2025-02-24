@@ -5,7 +5,7 @@
         <span>Due Date : <time >{{task.dueDate}}</time></span>
         <p>{{task.task_desc}}</p>
         <p class="actions">
-            <button> Complete</button>
+            <button (click) = "complete_task()">Complete</button>
         </p>
     }
     @else () {

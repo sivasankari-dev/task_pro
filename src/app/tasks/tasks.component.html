@@ -1,11 +1,15 @@
 <!-- <h2>{{ name }}</h2> -->
 
+@if(isAddingTasks){
+    <app-new-task (cancel)="onTaskCancel()" (add)="onAddtask($event)"></app-new-task>
+}
+
 <section id = "tasks">
     <header>
         @if( id ){
         <h2>Tasks of {{ name }}</h2>
         <menu>
-            <button>Add Tasks</button>
+            <button (click)="onStartAddTask()"> + Add Tasks</button>
         </menu>
         }   
     </header>
@@ -14,12 +18,12 @@
         @if (selectedUserTasks.length > 0) {
             <li>
                 @for (selected_task of selectedUserTasks; track selected_task.id){
-                <app-task [task] = "selected_task"></app-task>
+                <app-task [task] = "selected_task" (complete) = "onComplete($event)"></app-task>
                 }
             </li>
         } 
         @else ()   {
-            <h3 id = "fallback">No tasks assigned yet!</h3>
+            <h4 id = "fallback">No tasks assigned!</h4>
         }
     </ul>
 

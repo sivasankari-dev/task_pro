@@ -1,12 +1,6 @@
-export interface Tasks {
-    id:string;
-    user_id:string;
-    task_name:string;
-    task_desc:string;
-    dueDate:string;
-}
 
-export const DUMMY_TASKS :Tasks[] = [
+
+export const DUMMY_TASKS  = [
     {
         id:"1",
         user_id:"u1", 
