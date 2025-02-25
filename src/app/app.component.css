@@ -6,6 +6,16 @@ main {
     grid-auto-flow: row;
     gap: 2rem;
   }
+
+  .notepad {
+    background-color: rgb(241, 237, 242);
+    width: 70%;
+    height: auto;
+    display: grid;
+    grid-auto-flow: row;
+    margin: 2.5rem auto;
+    border-radius: 10px;    
+  }
   
   #users {
     list-style: none;

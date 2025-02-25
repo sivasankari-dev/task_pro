@@ -1,6 +1,7 @@
 
 <app-header></app-header>
 
+<div class="notepad">
 <main>
     <ul id="users">
       @for (user of users; track user.id) {
@@ -17,9 +18,11 @@
         <app-tasks [name] = "selectedUser.name"  [id] = "selectedUser.id" />
        }
        @else () {
-        <h3 id="fallback">Select any user to see their tasks!</h3>
+        <h3 id="fallback">Select any user to view their tasks!</h3>
        }
+
  
   </main>
+</div>
   <router-outlet />
 <!-- <app-footer></app-footer> -->

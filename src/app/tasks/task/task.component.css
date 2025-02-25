@@ -4,9 +4,14 @@ article {
     background-color: rgb(229, 221, 217);
     border-radius: 5px;
     margin: 2px;
+    font-size: 0.9rem;
 }
 
-h2 {
+/* span {
+    font-size: 0.9rem;
+} */
+
+h3 {
     margin: 0;
 }
 

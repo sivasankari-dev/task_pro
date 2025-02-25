@@ -24,7 +24,7 @@ h2 {
     color: #d0c2e1;
 }
 
-label {
+label,span {
     display: block;
     font-weight: bold;
     font-size: 0.85rem;

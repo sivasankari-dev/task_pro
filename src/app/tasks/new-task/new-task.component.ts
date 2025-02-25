@@ -1,10 +1,11 @@
 import { Component, Output,EventEmitter } from '@angular/core';
 import { type NewTaskdata } from '../task/task.model';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-new-task',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'
 })

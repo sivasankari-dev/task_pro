@@ -1,22 +1,34 @@
 <div class="backdrop" (click)="onCancel()"></div>
 <dialog open>
     <h2>Add Task</h2>
-    <form (ngSubmit)="onSubmit()">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()">
         <p>
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" [(ngModel)]="task_input_name"/>
+            <input type="text" id="name" name="name" [(ngModel)]="task_input_name" required
+            #name="ngModel"/>
+            <span *ngIf="name.invalid && name.touched">
+                *Task Name is required.
+            </span>
         </p>
         <p>
             <label for="desc">Description</label>
-            <textarea id="desc" name="desc" rows="5" [(ngModel)]="task_input_desc"></textarea>
+            <textarea id="desc" name="desc" rows="5" [(ngModel)]="task_input_desc" required
+            #name="ngModel"></textarea>
+            <span *ngIf="name.invalid && name.touched">
+                *Description is required.
+            </span>
         </p>
         <p>
             <label for="duedate">Due Date</label>
-            <input type="date" id="duedate" name="duedate" [(ngModel)]="task_input_date"/>
+            <input type="date" id="duedate" name="duedate" [(ngModel)]="task_input_date" required
+            #name="ngModel"/>
+            <span *ngIf="name.invalid && name.touched">
+                *Completion date is required.
+            </span>
         </p>
         <p class="actions">
             <button type="button" (click)="onCancel()">Cancel</button>
-            <button type="submit">Create</button>
+            <button type="submit" [disabled]="myForm.invalid">Create</button>
         </p>
     </form>
 </dialog>
