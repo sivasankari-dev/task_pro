@@ -8,14 +8,14 @@
       <li>
       <!-- <li *ngFor = "let user of users"> -->
         <!-- <app-user [avatar] = "user.avatar" [name] = "user.name" [id] = "user.id" (select)="onSelectUser($event)"/> -->
-         <app-user [user] = user (select)="onSelectUser($event)"/>
+         <app-user [user] = user [selected]="user.id === selectedUserId" (select)="onSelectUser($event)"/>
       </li>
     }
  
     </ul>
       <!-- <app-tasks *ngIf="selectedUser" [name] = "selectedUser.name"  /> -->
        @if (selectedUser) {
-        <app-tasks [name] = "selectedUser.name"  [id] = "selectedUser.id" />
+        <app-tasks [name] = "selectedUser.name"  [user_id] = "selectedUser.id" />
        }
        @else () {
         <h3 id="fallback">Select any user to view their tasks!</h3>

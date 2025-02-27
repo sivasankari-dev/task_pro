@@ -13,16 +13,16 @@
         <p>
             <label for="desc">Description</label>
             <textarea id="desc" name="desc" rows="5" [(ngModel)]="task_input_desc" required
-            #name="ngModel"></textarea>
-            <span *ngIf="name.invalid && name.touched">
+            #desc="ngModel"></textarea>
+            <span *ngIf="desc.invalid && desc.touched">
                 *Description is required.
             </span>
         </p>
         <p>
             <label for="duedate">Due Date</label>
             <input type="date" id="duedate" name="duedate" [(ngModel)]="task_input_date" required
-            #name="ngModel"/>
-            <span *ngIf="name.invalid && name.touched">
+            #duedate="ngModel"/>
+            <span *ngIf="duedate.invalid && duedate.touched">
                 *Completion date is required.
             </span>
         </p>

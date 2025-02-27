@@ -9,7 +9,7 @@ main {
 
   .notepad {
     background-color: rgb(241, 237, 242);
-    width: 70%;
+    width: 95%;
     height: auto;
     display: grid;
     grid-auto-flow: row;
@@ -26,7 +26,7 @@ main {
     overflow: auto;
   }
   
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     main {
       margin: 4rem auto;
       grid-template-columns: 1fr 3fr;
@@ -35,4 +35,54 @@ main {
     #users {
       flex-direction: column;
     }
+  } */
+
+  /* Media Queries for Responsive Design */
+
+/* Tablet-sized devices and above (min-width: 768px) */
+@media (min-width: 768px) {
+  main {
+      margin: 4rem auto;
+      grid-template-columns: 1fr 3fr; /* Two-column layout on larger screens */
   }
+
+  #users {
+      flex-direction: column; /* Stack users vertically on larger screens */
+  }
+}
+
+/* Mobile-sized screens (max-width: 768px) */
+@media (max-width: 768px) {
+  main {
+      margin: 2rem auto;
+      grid-template-columns: 1fr; /* Single column layout on small screens */
+      padding: 0 1rem; /* Add some padding on the sides for mobile */
+  }
+
+  .notepad {
+      margin: 1.5rem auto; /* Reduce margin for notepad on smaller screens */
+      width: 100%; /* Full width for notepad */
+  }
+
+  #users {
+      flex-direction: row; /* Users in a row on smaller screens */
+      overflow-x: auto; /* Horizontal scrolling for user list */
+      gap: 1rem; /* Increased gap between user items */
+  }
+}
+
+/* Very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  main {
+      margin: 1.5rem auto; /* Reduced margin for very small screens */
+      padding: 0 0.5rem; /* Add less padding for tiny screens */
+  }
+
+  .notepad {
+      margin: 1rem auto; /* Reduce margin for notepad */
+  }
+
+  #users {
+      gap: 0.8rem; /* Smaller gap between users */
+  }
+}

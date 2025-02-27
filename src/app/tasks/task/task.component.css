@@ -7,10 +7,6 @@ article {
     font-size: 0.9rem;
 }
 
-/* span {
-    font-size: 0.9rem;
-} */
-
 h3 {
     margin: 0;
 }
@@ -41,4 +37,49 @@ time {
 .actions button:active {
     background-color: #4a0774;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablet-sized devices and above (min-width: 768px) */
+@media (min-width: 768px) {
+       .actions {
+        text-align: right; 
+    }
+
+}
+
+/* Smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    article {
+        font-size: 0.95rem;  
+        padding: 1.5rem; 
+    }
+
+    .actions {
+        text-align: center; 
+        margin-top: 0.8rem; 
+    }
+
+    .actions button {
+        font-size: 1rem; 
+        padding: 0.5rem 1.2rem; 
+    }
+}
+
+/* Mobile-sized screens (max-width: 480px) */
+@media (max-width: 480px) {
+    article {
+        padding: 1rem; 
+        font-size: 1rem; 
+    }
+
+    .actions {
+        text-align: center; 
+    }
+
+    .actions button {
+        font-size: 1rem;  
+        padding: 0.5rem 1rem;
+    }
 }

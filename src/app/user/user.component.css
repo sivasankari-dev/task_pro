@@ -23,7 +23,8 @@ div {
   button:hover,
   button:active,
   .active {
-    background-color: #9965dd;
+    /* background-color: #9965dd; */
+    background-color: rgb(159, 115, 200);
     color: #150722;
   }
   
@@ -35,9 +36,27 @@ div {
   }
   
   span {
-    margin: 0;
+    margin: 0 1.5rem 0 0;
     padding: 0;
     font-size: 0.8rem;
     font-weight: bold;
   }
 
+/* Media Queries for Responsive Design */
+
+/* Smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  button {
+      min-width: 8rem; /* Reduce minimum width of the button */
+      font-size: 0.9rem; /* Adjust font size for smaller devices */
+      padding: 0.4rem 0.8rem; /* Adjust button padding */
+  }
+
+  img {
+      width: 1.5rem; /* Make the image slightly smaller */
+  }
+
+  span {
+      font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+}

@@ -2,13 +2,11 @@ header{
     display : flex;
     justify-content: center;
     align-items: center;
-    /* gap: 1rem; */
     width: 95%;
     margin: 0 auto 0 auto;
     text-align: center;
     padding: 1rem;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-    /* background-color: rgb(138, 43, 226); */
     background-color: rgb(159, 115, 200);
     border-radius: 5px;
 }
@@ -21,7 +19,7 @@ header{
 img {
     width: 3.5rem;
     object-fit: contain;
-    /* margin-left: 5rem; */
+    margin-right: 0.8rem;
 }
 
 h1{

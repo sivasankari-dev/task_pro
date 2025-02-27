@@ -1,8 +1,8 @@
 
 <article>
     @if (task) {
-        <h3>{{task.task_name}}</h3><br>
-        <span>Due date : <time >{{task.dueDate}}</time></span>
+        <h3><u>{{task.task_name}}</u></h3><br>
+        <span>Due date : <time >{{task.dueDate | date : 'longDate'}}</time></span>
         <p>{{task.task_desc}}</p>
         <p class="actions">
             <button (click) = "complete_task()">Complete</button>
