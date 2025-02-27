@@ -19,7 +19,7 @@
             </span>
         </p>
         <p>
-            <label for="duedate">Due Date</label>
+            <label for="duedate">Task Deadline</label>
             <input type="date" id="duedate" name="duedate" [(ngModel)]="task_input_date" required
             #duedate="ngModel"/>
             <span *ngIf="duedate.invalid && duedate.touched">

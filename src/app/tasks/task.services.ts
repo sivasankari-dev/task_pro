@@ -11,6 +11,7 @@ export class TasksService {
             task_name:"Add users to app", 
             task_desc:"In the task management app, users need to be added to dummy_users.ts file", 
             dueDate: '2025-02-31', 
+            isCompleted:false,
         },
         {
             id:"2",
@@ -18,6 +19,7 @@ export class TasksService {
             task_name: "Write documentation",
             task_desc: "Write technical documentation for the new API endpoints.",
             dueDate: '2025-03-13',
+            isCompleted:false,
         },
         {
             id:"3",
@@ -25,6 +27,7 @@ export class TasksService {
             task_name: "Design homepage",
             task_desc: "Create a wireframe and design for the homepage of the website.",
             dueDate: '2025-04-04',
+            isCompleted:false,
         },
         {
             id:"4",
@@ -32,6 +35,7 @@ export class TasksService {
             task_name: "Set up database",
             task_desc: "Set up and configure the new database for the project.",
             dueDate: '2025-03-13',
+            isCompleted:false,
         },
         {
             id:"5",
@@ -39,6 +43,7 @@ export class TasksService {
             task_name: "Bug fix login issue",
             task_desc: "Fix the issue with user login where the page throws an error.",
             dueDate: '2025-02-24',
+            isCompleted:false,
         },
         {
             id:"6",
@@ -46,6 +51,7 @@ export class TasksService {
             task_name: "Update dependencies",
             task_desc: "Update project dependencies to their latest stable versions.",
             dueDate: '2025-03-10',
+            isCompleted:false,
         },
     ];
 
@@ -60,10 +66,18 @@ export class TasksService {
             task_name : taskData.task_name,
             task_desc : taskData.task_desc,
             dueDate : taskData.dueDate,
+            isCompleted : false,
         })
     }
 
     removeTask(task_id:string){
         this.tasks = this.tasks.filter ((task)=> task.id !== task_id)
+    }
+
+    markTaskAsCompleted(task_id:string){
+        const task = this.tasks.find(t => t.id === task_id);
+        if (task) {
+            task.isCompleted = true;
+        }
     }
 }

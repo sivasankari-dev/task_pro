@@ -15,8 +15,12 @@ export class TaskComponent {
  
   private tasksService = inject(TasksService)
 
-  complete_task() {
+  delete_task() {
     this.tasksService.removeTask(this.task.id)
+  }
+
+  complete_task() {
+    this.tasksService.markTaskAsCompleted(this.task.id)
   }
 
 }

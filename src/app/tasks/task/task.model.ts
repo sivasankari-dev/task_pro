@@ -4,6 +4,7 @@ export interface Tasks {
     task_name:string;
     task_desc:string;
     dueDate:string;
+    isCompleted:boolean;
 }
 
 export interface NewTaskdata {

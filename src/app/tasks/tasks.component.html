@@ -12,8 +12,12 @@
         </menu>
         }   
     </header>
+    <div class="tabs">
+        <button (click)="selectTab('open')" [class.active]="selectedTab === 'open'">Open Tasks</button>
+        <button (click)="selectTab('completed')" [class.active]="selectedTab === 'completed'">Completed Tasks</button>
+    </div>
 
-    <ul>
+    <!-- <ul>
         @if (selectedUserTasks.length > 0) {
             <li>
                 @for (selected_task of selectedUserTasks; track selected_task.id){
@@ -24,6 +28,31 @@
         @else ()   {
             <h4 id = "fallback">No tasks assigned!</h4>
         }
-    </ul>
+    </ul> -->
+    <div *ngIf="selectedTab === 'open'">
+        <ul>
+            @if(getOpenTasks().length > 0) {
+            <li>
+                <app-task *ngFor="let selected_task of getOpenTasks()" [task]="selected_task"></app-task>
+            </li>
+            }
+            @else() {
+                <h4 id="fallback">No open tasks!</h4>
+            }
+        </ul>
+    </div>
 
+    <!-- Display Completed Tasks -->
+    <div *ngIf="selectedTab === 'completed'">
+        <ul>
+            @if(getcompletedTasks().length > 0) {
+            <li>
+                <app-task *ngFor="let selected_task of getcompletedTasks()" [task]="selected_task"></app-task>
+            </li>
+            }
+            @else() {
+                <h4 id="fallback">No completed tasks!</h4>
+            }
+        </ul>
+    </div>
 </section>
