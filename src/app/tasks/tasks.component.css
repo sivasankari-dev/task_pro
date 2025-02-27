@@ -60,6 +60,7 @@ ul {
   .tabs button {
     font:inherit;
     font-size: 0.9rem;
+    font-weight: bold;
     padding: 10px;
     cursor: pointer;
     border: none;
