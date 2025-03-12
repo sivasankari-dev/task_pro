@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { TasksService } from './task.services';
@@ -22,8 +22,18 @@ export class TasksComponent {
 
   }
 
+  isLoggedIn:boolean = false;
+  userRole: string | null = '';
   isAddingTasks = false;
   selectedTab: string = 'open';
+
+  ngOnInit() {
+    // Check if the user is already logged in by looking at localStorage
+    this.userRole = localStorage.getItem('userRole');
+    if (this.userRole) {
+      this.isLoggedIn = true;
+    }
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['user_id']) {
