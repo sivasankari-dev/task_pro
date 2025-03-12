@@ -53,14 +53,14 @@
 @else () {
 
   <main>
-    @if (selectedUser) {
+    @if (userLogin) {
     <ul id="users">
       
       <li>
-         <app-user [user] = selectedUser [selected]="true" (select)="onSelectUser($event)"/>
+         <app-user [user] = userLogin [selected]="true" (select)="onSelectUser($event)"/>
       </li>
     </ul>
-    <app-tasks [name] = "selectedUser.name"  [user_id] = "selectedUser.id" />
+    <app-tasks [name] = "userLogin.name"  [user_id] = "userLogin.id" />
   }
   </main>
 }

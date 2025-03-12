@@ -47,6 +47,10 @@ export class AppComponent implements OnInit{
       // console.log (this.selectedUser)
   }
 
+  get userLogin(){
+    return this.users.find ((user)=>user.id === this.username);
+  }
+
   login() {
     // Handle login logic here
     if (this.username === this.adminCredentials.username && this.password === this.adminCredentials.password) {
