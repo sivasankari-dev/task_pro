@@ -57,7 +57,14 @@ export class AppComponent implements OnInit{
       localStorage.setItem('userRole', 'admin');
       this.userRole = 'admin';
       this.isLoggedIn = true;
-    } else if (this.username && this.password) {
+    } else if (
+      (this.username && this.password) && 
+      (this.username === 'u1' || 
+       this.username === 'u2' ||
+       this.username === 'u3' ||
+       this.username === 'u4' ||
+       this.username === 'u5' ||
+       this.username === 'u6' )) {
       localStorage.setItem('userRole', this.username);
       this.userRole = 'user';
       this.isLoggedIn = true;
