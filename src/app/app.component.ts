@@ -59,12 +59,12 @@ export class AppComponent implements OnInit{
       this.isLoggedIn = true;
     } else if (
       (this.username && this.password) && 
-      (this.username === 'u1' || 
-       this.username === 'u2' ||
-       this.username === 'u3' ||
-       this.username === 'u4' ||
-       this.username === 'u5' ||
-       this.username === 'u6' )) {
+      (this.username === 'u1' && this.password === 'u1'|| 
+       this.username === 'u2' && this.password === 'u2'||
+       this.username === 'u3' && this.password === 'u3'||
+       this.username === 'u4' && this.password === 'u4'||
+       this.username === 'u5' && this.password === 'u5'||
+       this.username === 'u6' && this.password === 'u6' )) {
       localStorage.setItem('userRole', this.username);
       this.userRole = 'user';
       this.isLoggedIn = true;
