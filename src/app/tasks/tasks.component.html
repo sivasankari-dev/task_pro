@@ -7,7 +7,7 @@
     <header>
         @if( user_id ){
         <h2>Tasks of {{ name }}</h2>
-        <menu>
+        <menu *ngIf="userRole === 'admin'">
             <button (click)="onStartAddTask()"> + Add Tasks</button>
         </menu>
         }   
@@ -17,18 +17,6 @@
         <button (click)="selectTab('completed')" [class.active]="selectedTab === 'completed'">Completed Tasks</button>
     </div>
 
-    <!-- <ul>
-        @if (selectedUserTasks.length > 0) {
-            <li>
-                @for (selected_task of selectedUserTasks; track selected_task.id){
-                <app-task [task] = "selected_task" ></app-task>
-                }
-            </li>
-        } 
-        @else ()   {
-            <h4 id = "fallback">No tasks assigned!</h4>
-        }
-    </ul> -->
     <div *ngIf="selectedTab === 'open'">
         <ul>
             @if(getOpenTasks().length > 0) {

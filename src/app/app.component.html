@@ -1,7 +1,33 @@
 
 <app-header></app-header>
 
-<div class="notepad">
+<div *ngIf="!isLoggedIn" class="login-container">
+  <!-- Login Form -->
+  <!-- <h2 class="login-title">Task Pro</h2> -->
+  <form (ngSubmit)="login()" class="login-form">
+    <div class="input-group">
+    <label for="username">Username</label>
+    <input type="text" id="username" [(ngModel)]="username" name="username" required />
+    </div>
+
+    <div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" [(ngModel)]="password" name="password" required />
+    </div>
+
+    <button type="submit" class="login-btn">Login</button>
+  </form>
+</div>
+ 
+<div class="notepad" *ngIf="isLoggedIn" >
+  <div class="welcome-container">
+  <h3>Welcome, {{ userRole === 'admin' ? 'Admin' : username }}</h3>
+  <button class="logout" (click)="logout()">Logout</button>
+</div>
+
+<!-- Admin View -->
+@if(isLoggedIn){
+@if(userRole === 'admin'){
 <main>
     <ul id="users">
       @for (user of users; track user.id) {
@@ -11,8 +37,8 @@
          <app-user [user] = user [selected]="user.id === selectedUserId" (select)="onSelectUser($event)"/>
       </li>
     }
- 
     </ul>
+    
       <!-- <app-tasks *ngIf="selectedUser" [name] = "selectedUser.name"  /> -->
        @if (selectedUser) {
         <app-tasks [name] = "selectedUser.name"  [user_id] = "selectedUser.id" />
@@ -20,9 +46,26 @@
        @else () {
         <h3 id="fallback">Select any user to view their tasks!</h3>
        }
-
  
   </main>
+}
+<!-- UserView -->
+@else () {
+
+  <main>
+    @if (selectedUser) {
+    <ul id="users">
+      
+      <li>
+         <app-user [user] = selectedUser [selected]="true" (select)="onSelectUser($event)"/>
+      </li>
+    </ul>
+    <app-tasks [name] = "selectedUser.name"  [user_id] = "selectedUser.id" />
+  }
+  </main>
+}
+}
+
 </div>
+
   <router-outlet />
-<!-- <app-footer></app-footer> -->
