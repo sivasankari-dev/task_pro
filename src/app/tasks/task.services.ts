@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
-import { NewTaskdata } from "./task/task.model";
+import { NewTaskdata, Tasks } from "./task/task.model";
 
 @Injectable( { providedIn :'root' })
 
 export class TasksService {
-    private tasks = [
+// Mock task data to experience all functionalities of task pro app    
+    private tasks : Tasks[] = [
         {
             id:"1",
             user_id:"u1", 
@@ -53,12 +54,30 @@ export class TasksService {
             dueDate: '2025-03-10',
             isCompleted:false,
         },
+        {
+            id:"7",
+            user_id:"u6",
+            task_name: "Design homepage",
+            task_desc: "Create a wireframe and design for the homepage of the website.",
+            dueDate: '2025-04-04',
+            isCompleted:false,
+        },
     ];
 
+// Retreiving data from session storage    
+    constructor () {
+        const tasks = sessionStorage.getItem('tasks');
+        if(tasks){
+            this.tasks = JSON.parse(tasks);
+        }
+    }
+
+// Filtering tasks based on selected userID    
     getUserTasks(user_id : string) {
         return this.tasks.filter((task) => task.user_id === user_id);
     }
 
+// Adding new task to user    
     addTask(taskData: NewTaskdata, user_id : string){
         this.tasks.unshift({
             id: new Date().getTime().toString(),
@@ -67,17 +86,27 @@ export class TasksService {
             task_desc : taskData.task_desc,
             dueDate : taskData.dueDate,
             isCompleted : false,
-        })
+        });
+        this.saveTask(); // Updating Session storage
     }
 
+// Removing task when deleted    
     removeTask(task_id:string){
         this.tasks = this.tasks.filter ((task)=> task.id !== task_id)
+        this.saveTask(); // Updating Session storage
     }
 
+// Setting isCompleted flag for completed tasks    
     markTaskAsCompleted(task_id:string){
         const task = this.tasks.find(t => t.id === task_id);
         if (task) {
             task.isCompleted = true;
         }
+        this.saveTask(); // Updating Session storage
+    }
+
+// Storing data to session storage    
+    private saveTask(){
+        sessionStorage.setItem('tasks',JSON.stringify(this.tasks));
     }
 }

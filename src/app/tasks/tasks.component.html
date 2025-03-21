@@ -1,4 +1,4 @@
-
+<!-- Display add task modal when add task button is selected -->
 @if(isAddingTasks){
     <app-new-task (close)="onTaskCancel()" [user_id]="user_id"></app-new-task>
 }
@@ -6,17 +6,19 @@
 <section id = "tasks">
     <header>
         @if( user_id ){
-        <h2>Tasks of {{ name }}</h2>
-        <menu *ngIf="userRole === 'admin'">
-            <button (click)="onStartAddTask()"> + Add Tasks</button>
-        </menu>
+            <h2><i class="fa-solid fa-list-check"></i>&nbsp;Tasks of {{ name }}</h2>
+            <!-- Role based rendering for admin -->
+            <menu *ngIf="userRole === 'admin'">
+                <button (click)="onStartAddTask()"> + Add Tasks</button>
+            </menu>
         }   
     </header>
+    <!-- Seperate tabs for open and completed tasks -->
     <div class="tabs">
-        <button (click)="selectTab('open')" [class.active]="selectedTab === 'open'">Open Tasks</button>
-        <button (click)="selectTab('completed')" [class.active]="selectedTab === 'completed'">Completed Tasks</button>
+        <button (click)="selectTab('open')" [class.active]="selectedTab === 'open'"><i class="fa-solid fa-folder-open"></i>&nbsp;Open Tasks</button>
+        <button (click)="selectTab('completed')" [class.active]="selectedTab === 'completed'"><i class="fa-solid fa-square-check"></i>&nbsp;Completed Tasks</button>
     </div>
-
+    <!-- Display open tasks -->
     <div *ngIf="selectedTab === 'open'">
         <ul>
             @if(getOpenTasks().length > 0) {
@@ -25,7 +27,7 @@
             </li>
             }
             @else() {
-                <h4 id="fallback">No open tasks!</h4>
+                <h5 id="fallback">Add new tasks using 'Add Tasks' button(For admin use only)</h5>
             }
         </ul>
     </div>
@@ -39,7 +41,7 @@
             </li>
             }
             @else() {
-                <h4 id="fallback">No completed tasks!</h4>
+                <h5 id="fallback">No completed tasks!</h5>
             }
         </ul>
     </div>

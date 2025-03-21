@@ -29,17 +29,16 @@ type User ={
   imports:[CommonModule],
 })
 export class UserComponent{
-  // @Input({ required : true }) avatar!: string;
-  // @Input({ required : true }) name!: string;
-  // @Input({ required : true }) id!:string;
   @Input({ required:true }) user! : User;
   @Input({ required: true }) selected!: boolean;
   @Output () select = new EventEmitter();
 
+// To resove image path
   get imagePath() {
     return 'assets/users/' + this.user.avatar;
   }
 
+// Send the selected user id to tasks component
   onUserSelected() {
    this.select.emit(this.user.id);
   }

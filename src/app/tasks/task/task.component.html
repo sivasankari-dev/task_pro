@@ -1,19 +1,23 @@
 
 <article>
+<!-- check for tasks assigned to selected user -->
     @if (task) {
         <h3><u>{{task.task_name}}</u></h3><br>
         <span>Due date : <time >{{task.dueDate | date : 'longDate'}}</time></span>
-        <p>{{task.task_desc}}</p>
-        @if (task.isCompleted){
-        <p class="actions">
-            <button (click) = "delete_task()">Delete</button>
-        </p>
-        }
-        @if (!task.isCompleted){
-        <p class="actions">
-            <button (click) = "complete_task()">Complete</button>
-        </p>
-        }
+    <!-- Admins and users can view complete button -->
+        @if(isLoggedIn){
+            <p>{{task.task_desc}}</p>
+            @if (task.isCompleted && userRole === 'admin'){   <!-- Role based access for admin to use delete button -->
+                <p class="actions">
+                    <button (click) = "delete_task()"><i class="fa-solid fa-trash-can"></i></button>
+                </p>
+            }
+            @if (!task.isCompleted){
+                <p class="actions">
+                    <button (click) = "complete_task()">Mark as 'Complete'</button>
+                </p>
+            }
+        }  
     }
     @else () {
         <p>No tasks!</p>

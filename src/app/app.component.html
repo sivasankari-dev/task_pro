@@ -1,13 +1,31 @@
-
+<!-- App Header -->
 <app-header></app-header>
 
+<!-- Login form is displayed onInit -->
 <div *ngIf="!isLoggedIn" class="login-container">
+
+  <div class="mock-login">
+    <label class="mock-title">Mock Login - Username and Password are the same</label>
+    <label class="mock-admin"><strong>Admin:</strong> admin</label>
+    <div class="mock-data">
+      <div class="column">
+        <label class="test-users"><strong>User1:</strong> u1</label>
+        <label class="test-users"><strong>User2:</strong> u2</label>
+        <label class="test-users"><strong>User3:</strong> u3</label>
+      </div>
+      <div class="column">
+        <label class="test-users"><strong>User4:</strong> u4</label>
+        <label class="test-users"><strong>User5:</strong> u5</label>
+        <label class="test-users"><strong>User6:</strong> u6</label>
+      </div>
+    </div>
+  </div>
+
   <!-- Login Form -->
-  <!-- <h2 class="login-title">Task Pro</h2> -->
-  <form (ngSubmit)="login()" class="login-form">
+  <form (ngSubmit)="login()" class="login-form" >
     <div class="input-group">
     <label for="username">Username</label>
-    <input type="text" id="username" [(ngModel)]="username" name="username" required />
+    <input type="text" id="username" [(ngModel)]="username" name="username" required autocomplete="off"/>
     </div>
 
     <div class="input-group">
@@ -18,10 +36,11 @@
     <button type="submit" class="login-btn">Login</button>
   </form>
 </div>
- 
+
+<!-- This container will be only rendered after proper login -->
 <div class="notepad" *ngIf="isLoggedIn" >
   <div class="welcome-container">
-  <h3>Welcome, {{ userRole === 'admin' ? 'Admin' : username }}</h3>
+  <h3>Welcome {{ userRole === 'admin' ? 'Admin' : loginName }},</h3> <!--Will get name based on login credentials-->
   <button class="logout" (click)="logout()">Logout</button>
 </div>
 
@@ -32,14 +51,11 @@
     <ul id="users">
       @for (user of users; track user.id) {
       <li>
-      <!-- <li *ngFor = "let user of users"> -->
-        <!-- <app-user [avatar] = "user.avatar" [name] = "user.name" [id] = "user.id" (select)="onSelectUser($event)"/> -->
          <app-user [user] = user [selected]="user.id === selectedUserId" (select)="onSelectUser($event)"/>
       </li>
     }
     </ul>
     
-      <!-- <app-tasks *ngIf="selectedUser" [name] = "selectedUser.name"  /> -->
        @if (selectedUser) {
         <app-tasks [name] = "selectedUser.name"  [user_id] = "selectedUser.id" />
        }
@@ -49,6 +65,7 @@
  
   </main>
 }
+
 <!-- UserView -->
 @else () {
 
@@ -67,5 +84,3 @@
 }
 
 </div>
-
-  <router-outlet />
