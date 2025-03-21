@@ -6,7 +6,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Live Demo
 
-You can check demo [here](https://angulartaskpro.netlify.app).
+You can check demo [here](angulartaskpro.netlify.app).
 
 ## Development server
 
