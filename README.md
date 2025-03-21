@@ -12,7 +12,6 @@ You can check demo [here](https://angulartaskpro.netlify.app).
 
 ![Alt text](src/assets/app_preview.png)
 
-
 ## Development server
 
 To start a local development server, run:
