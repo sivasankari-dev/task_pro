@@ -1,6 +1,12 @@
-# Practiceapp
+# Task Management App
+
+This is a task management application used to create, update and delete tasks for various users. There is mock login given for admin and sample users. Form validation is present for eventhough it is mock login service. Dummy users and dummy tasks are given for ease of use to experience the extent of this app.Admin can add new tasks, update tasks as completed and delete tasks for all users. User can login and view only their tasks. They can set the task as completed but cannot create or delete tasks. Role based rendering is used based on login credentials stored in session storage. This app uses Directives, Services and Dependency Injection, Event binding, Property binding, Two-way Binding using NgModel, Template-driven forms and mock login service with session storage. 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+
+## Live Demo
+
+You can check demo [here](angulartaskpro.netlify.app).
 
 ## Development server
 
