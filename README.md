@@ -8,6 +8,11 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 You can check demo [here](https://angulartaskpro.netlify.app).
 
+## Preview
+
+![Alt text](src/assets/app_preview.png)
+
+
 ## Development server
 
 To start a local development server, run:
